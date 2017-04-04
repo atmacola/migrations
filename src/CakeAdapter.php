@@ -741,4 +741,27 @@ class CakeAdapter implements AdapterInterface
     {
         return $this->adapter->resetAllBreakpoints();
     }
+
+    /**
+     * Cast a value to a boolean appropriate for the adapter.
+     *
+     * @param mixed $value The value to be cast
+     *
+     * @return mixed
+     */
+    public function castToBool($value)
+    {
+        return $this->adapter->castToBool($value);
+    }
+
+    /**
+     * Truncates the specified table
+     *
+     * @param string $tableName
+     * @return void
+     */
+    public function truncateTable($tableName): void
+    {
+        return $this->adapter->truncateTable($tableName);
+    }
 }
