@@ -1,2 +1,4 @@
 plugins/
 vendor/
+.idea/
+composer.lock

@@ -777,25 +777,38 @@ class CakeAdapter implements AdapterInterface
     }
 
     /**
-     * Cast a value to a boolean appropriate for the adapter.
+     * Inserts data into a table in a bulk.
      *
-     * @param mixed $value The value to be cast
-     *
-     * @return mixed
+     * @param PhinxTable $table where to insert data
+     * @param array $rows
+     * @return void
      */
-    public function castToBool($value)
+    public function bulkinsert(PhinxTable $table, $rows)
     {
-        return $this->adapter->castToBool($value);
+        return $this->adapter->bulkinsert();
     }
 
     /**
-     * Truncates the specified table
+     * Creates the specified schema or throws an exception
+     * if there is no support for it.
      *
-     * @param string $tableName
+     * @param  string $schemaName Schema Name
      * @return void
      */
-    public function truncateTable($tableName): void
+    public function createSchema($schemaName = 'public')
     {
-        return $this->adapter->truncateTable($tableName);
+        return $this->adapter->createSchema();
+    }
+
+    /**
+     * Drops the specified schema table  or throws an exception
+     * if there is no support for it.
+     *
+     * @param string $schemaName Schema name
+     * @return void
+     */
+    public function dropSchema($schemaName)
+    {
+        return $this->adapter->dropSchema();
     }
 }
